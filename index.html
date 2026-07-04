@@ -55,7 +55,7 @@
   .eyebrow::before{content:'';width:24px;height:1px;background:var(--violet);}
   h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:44px;letter-spacing:-0.01em;}
 
-  /* NAV */
+  
   nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
     background:rgba(11,10,20,0.85);backdrop-filter:blur(10px);
@@ -68,7 +68,7 @@
   .nav-links{display:none;}
   @media(min-width:760px){.nav-links{display:flex;}}
 
-  /* HERO */
+  
   .hero{padding:170px 0 100px;border-bottom:1px solid var(--line);}
   .hero-inner{display:flex;flex-direction:column-reverse;gap:40px;align-items:center;}
   @media(min-width:860px){.hero-inner{flex-direction:row;justify-content:space-between;align-items:center;}}
@@ -103,7 +103,7 @@
   .social-row{display:flex;gap:20px;font-family:var(--mono);font-size:13px;color:var(--text-dim);flex-wrap:wrap;}
   .social-row a:hover{color:var(--violet-soft);}
 
-  /* ABOUT */
+
   .about-grid{display:grid;grid-template-columns:1fr;gap:40px;}
   @media(min-width:760px){.about-grid{grid-template-columns:1.4fr 1fr;}}
   .about-grid p{color:var(--text-dim);margin-bottom:16px;font-size:15.5px;}
@@ -114,14 +114,14 @@
   .learning-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
   .tag{font-family:var(--mono);font-size:12px;background:var(--bg-alt);border:1px solid var(--line);color:var(--violet-soft);padding:5px 11px;border-radius:100px;}
 
-  /* SKILLS */
+  
   .skill-grid{display:grid;grid-template-columns:1fr;gap:22px;}
   @media(min-width:640px){.skill-grid{grid-template-columns:1fr 1fr;}}
   .skill-cat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
   .skill-cat h3{font-family:var(--mono);font-size:13px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
   .skill-cat .tag{color:var(--text);}
 
-  /* EXPERIENCE */
+  
   .exp-item{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);}
   .exp-item:last-child{border-bottom:none;}
   .exp-item .when{font-family:var(--mono);font-size:13px;color:var(--text-dim);}
@@ -131,7 +131,7 @@
   .exp-item li{margin-bottom:6px;}
   @media(max-width:600px){.exp-item{grid-template-columns:1fr;gap:6px;}}
 
-  /* PROJECTS */
+  
   .proj-grid{display:grid;grid-template-columns:1fr;gap:22px;}
   @media(min-width:700px){.proj-grid{grid-template-columns:1fr 1fr;}}
   .proj-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px;display:flex;flex-direction:column;transition:.2s;}
@@ -144,7 +144,7 @@
   .proj-links a:hover{text-decoration:underline;}
   .proj-card.featured{border-color:rgba(88,101,242,0.5);background:linear-gradient(160deg,var(--surface),var(--bg-alt));}
 
-  /* TIMELINE (NSS/Campus) */
+  
   .tl-item{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);}
   .tl-item:last-child{border-bottom:none;}
   .tl-item .yr{font-family:var(--mono);color:var(--amber);font-size:14px;}
@@ -152,7 +152,7 @@
   .tl-item p{color:var(--text-dim);font-size:14.5px;}
   @media(max-width:600px){.tl-item{grid-template-columns:1fr;gap:4px;}}
 
-  /* ACHIEVEMENTS */
+
   .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   @media(min-width:640px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
   .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px 20px;text-align:center;}
@@ -160,7 +160,7 @@
   .stat .label{font-size:13px;color:var(--text);margin-top:6px;}
   .stat .sub{font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:4px;}
 
-  /* GITHUB */
+  
   .gh-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:26px;}
   .gh-header h3{font-family:var(--display);font-size:20px;}
   .gh-header p{color:var(--text-dim);font-size:14px;}
@@ -168,7 +168,7 @@
   .gh-stats-row{display:grid;grid-template-columns:1fr;gap:16px;}
   @media(min-width:760px){.gh-stats-row{grid-template-columns:1fr 1fr;}}
 
-  /* LINKEDIN */
+  
   .li-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
   .li-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--line);}
   .li-info h3{font-family:var(--display);font-size:19px;}
@@ -176,7 +176,7 @@
   .li-info .loc{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
   .li-cta{margin-left:auto;}
 
-  /* CONTACT */
+  
   .contact-wrap{text-align:center;max-width:600px;margin:0 auto;}
   .contact-wrap h2{margin-bottom:14px;}
   .contact-wrap p{color:var(--text-dim);margin-bottom:36px;font-size:16px;}
@@ -210,7 +210,7 @@
 <section id="home" class="hero">
   <div class="wrap hero-inner">
     <div class="hero-text">
-    <!-- <div class="badge">Open to internships &amp; fresher roles</div> -->
+    
       <h1>Hi, I'm Riya Chand<br><span>Full-Stack Developer</span></h1>
       <div class="role">Next.js • React • FastAPI</div>
       <p class="desc">I build applications end-to-end — from backend APIs and databases to polished, production-ready frontends.</p>
@@ -237,7 +237,7 @@
       <div class="info-card">
         <div class="info-row"><span class="k">College</span><span>Heritage Institute of Technology</span></div>
         <div class="info-row"><span class="k">Degree</span><span>B.Tech, Information Technology</span></div>
-        <div class="info-row"><span class="k">Semester</span><span>4th Semester</span></div>
+        <div class="info-row"><span class="k">Semester</span><span>5th Semester</span></div>
         <div class="info-row"><span class="k">Location</span><span>Kolkata, India</span></div>
         <div class="info-row"><span class="k">Activity</span><span>NSS Volunteer</span></div>
         <div class="learning-tags">
