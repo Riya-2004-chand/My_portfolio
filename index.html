@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riya Chand — Full-Stack Developer</title>
+<meta name="description" content="B.Tech IT student building full-stack apps and ML systems that ship — from fake job detection to fintech dashboards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0d12;
+    --bg-alt:#111319;
+    --surface:#171921;
+    --line:#282b36;
+    --text:#e9eaef;
+    --text-dim:#8b8f9c;
+    --violet:#5865f2;
+    --violet-soft:#a5abf7;
+    --amber:#b08d57;
+    --mono:'JetBrains Mono',monospace;
+    --display:'Space Grotesk',sans-serif;
+    --body:'Inter',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--body);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:'';
+    position:fixed;inset:0;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(88,101,242,0.14), transparent 40%),
+      radial-gradient(circle at 85% 60%, rgba(88,101,242,0.10), transparent 45%);
+    pointer-events:none;
+    z-index:0;
+  }
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+  section{padding:110px 0;border-bottom:1px solid var(--line);}
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    color:var(--violet-soft);
+    display:flex;align-items:center;gap:10px;
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--violet);}
+  h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:44px;letter-spacing:-0.01em;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:rgba(11,10,20,0.85);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:1080px;margin:0 auto;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
+  .logo{font-family:var(--display);font-weight:700;font-size:18px;color:var(--violet-soft);}
+  .nav-links{display:flex;gap:26px;list-style:none;font-size:14px;color:var(--text-dim);}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links{display:none;}
+  @media(min-width:760px){.nav-links{display:flex;}}
+
+  /* HERO */
+  .hero{padding:170px 0 100px;border-bottom:1px solid var(--line);}
+  .hero-inner{display:flex;flex-direction:column-reverse;gap:40px;align-items:center;}
+  @media(min-width:860px){.hero-inner{flex-direction:row;justify-content:space-between;align-items:center;}}
+  .hero-text{flex:1;min-width:0;}
+  .hero-photo-wrap{flex-shrink:0;}
+  .hero-photo{
+    width:200px;height:200px;border-radius:50%;object-fit:cover;
+    border:3px solid var(--line);
+    box-shadow:0 0 0 6px rgba(88,101,242,0.10);
+  }
+  @media(min-width:860px){.hero-photo{width:240px;height:240px;}}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:var(--mono);font-size:12px;color:var(--amber);
+    border:1px solid rgba(176,141,87,0.35);
+    padding:6px 14px;border-radius:100px;margin-bottom:28px;
+  }
+  .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);}
+  .hero h1{font-family:var(--display);font-size:clamp(38px,6vw,64px);font-weight:700;line-height:1.05;letter-spacing:-0.02em;max-width:760px;}
+  .hero h1 span{color:var(--violet-soft);}
+  .hero .role{font-family:var(--mono);color:var(--text-dim);font-size:16px;margin:22px 0 6px;letter-spacing:0.02em;}
+  .hero p.desc{color:var(--text-dim);max-width:560px;font-size:16px;margin-bottom:36px;}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:14px;padding:13px 26px;border-radius:8px;
+    display:inline-flex;align-items:center;gap:8px;transition:.2s;
+  }
+  .btn-primary{background:var(--violet);color:#ffffff;font-weight:700;}
+  .btn-primary:hover{background:var(--violet-soft);}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--violet);}
+  .social-row{display:flex;gap:20px;font-family:var(--mono);font-size:13px;color:var(--text-dim);flex-wrap:wrap;}
+  .social-row a:hover{color:var(--violet-soft);}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr;gap:40px;}
+  @media(min-width:760px){.about-grid{grid-template-columns:1.4fr 1fr;}}
+  .about-grid p{color:var(--text-dim);margin-bottom:16px;font-size:15.5px;}
+  .info-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:24px;}
+  .info-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;}
+  .info-row:last-child{border-bottom:none;}
+  .info-row .k{color:var(--text-dim);}
+  .learning-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .tag{font-family:var(--mono);font-size:12px;background:var(--bg-alt);border:1px solid var(--line);color:var(--violet-soft);padding:5px 11px;border-radius:100px;}
+
+  /* SKILLS */
+  .skill-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:640px){.skill-grid{grid-template-columns:1fr 1fr;}}
+  .skill-cat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
+  .skill-cat h3{font-family:var(--mono);font-size:13px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
+  .skill-cat .tag{color:var(--text);}
+
+  /* EXPERIENCE */
+  .exp-item{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);}
+  .exp-item:last-child{border-bottom:none;}
+  .exp-item .when{font-family:var(--mono);font-size:13px;color:var(--text-dim);}
+  .exp-item h3{font-family:var(--display);font-size:19px;font-weight:600;margin-bottom:4px;}
+  .exp-item .org{color:var(--violet-soft);font-size:14px;margin-bottom:10px;}
+  .exp-item ul{color:var(--text-dim);font-size:14.5px;padding-left:18px;}
+  .exp-item li{margin-bottom:6px;}
+  @media(max-width:600px){.exp-item{grid-template-columns:1fr;gap:6px;}}
+
+  /* PROJECTS */
+  .proj-grid{display:grid;grid-template-columns:1fr;gap:22px;}
+  @media(min-width:700px){.proj-grid{grid-template-columns:1fr 1fr;}}
+  .proj-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px;display:flex;flex-direction:column;transition:.2s;}
+  .proj-card:hover{border-color:var(--violet);transform:translateY(-2px);}
+  .proj-card h3{font-family:var(--display);font-size:20px;margin-bottom:10px;}
+  .proj-card p{color:var(--text-dim);font-size:14.5px;margin-bottom:18px;flex-grow:1;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
+  .proj-links{display:flex;gap:16px;font-family:var(--mono);font-size:13px;}
+  .proj-links a{color:var(--violet-soft);}
+  .proj-links a:hover{text-decoration:underline;}
+  .proj-card.featured{border-color:rgba(88,101,242,0.5);background:linear-gradient(160deg,var(--surface),var(--bg-alt));}
+
+  /* TIMELINE (NSS/Campus) */
+  .tl-item{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);}
+  .tl-item:last-child{border-bottom:none;}
+  .tl-item .yr{font-family:var(--mono);color:var(--amber);font-size:14px;}
+  .tl-item h4{font-family:var(--display);font-size:17px;margin-bottom:6px;}
+  .tl-item p{color:var(--text-dim);font-size:14.5px;}
+  @media(max-width:600px){.tl-item{grid-template-columns:1fr;gap:4px;}}
+
+  /* ACHIEVEMENTS */
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(min-width:640px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px 20px;text-align:center;}
+  .stat .num{font-family:var(--display);font-size:36px;font-weight:700;color:var(--violet-soft);}
+  .stat .label{font-size:13px;color:var(--text);margin-top:6px;}
+  .stat .sub{font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:4px;}
+
+  /* GITHUB */
+  .gh-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:26px;}
+  .gh-header h3{font-family:var(--display);font-size:20px;}
+  .gh-header p{color:var(--text-dim);font-size:14px;}
+  .gh-imgs img{width:100%;border-radius:10px;margin-bottom:16px;border:1px solid var(--line);}
+  .gh-stats-row{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media(min-width:760px){.gh-stats-row{grid-template-columns:1fr 1fr;}}
+
+  /* LINKEDIN */
+  .li-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
+  .li-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--line);}
+  .li-info h3{font-family:var(--display);font-size:19px;}
+  .li-info .role{color:var(--text-dim);font-size:14px;margin:4px 0;}
+  .li-info .loc{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
+  .li-cta{margin-left:auto;}
+
+  /* CONTACT */
+  .contact-wrap{text-align:center;max-width:600px;margin:0 auto;}
+  .contact-wrap h2{margin-bottom:14px;}
+  .contact-wrap p{color:var(--text-dim);margin-bottom:36px;font-size:16px;}
+  .contact-links{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-top:48px;}
+  .contact-pill{display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--body);font-weight:600;font-size:14px;color:var(--text);}
+  .pill-icon{width:44px;height:44px;border-radius:10px;background:var(--surface);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--amber);transition:.2s;}
+  .contact-pill:hover .pill-icon{border-color:var(--amber);color:var(--amber);box-shadow:0 0 0 3px rgba(176,141,87,0.12);}
+
+  footer{padding:32px 0;text-align:center;color:var(--text-dim);font-family:var(--mono);font-size:12px;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#home" class="logo">Riya</a>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#involvement">Involvement</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#linkedin">LinkedIn</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+    <!-- <div class="badge">Open to internships &amp; fresher roles</div> -->
+      <h1>Hi, I'm Riya Chand<br><span>Full-Stack Developer</span></h1>
+      <div class="role">Next.js • React • FastAPI</div>
+      <p class="desc">I build applications end-to-end — from backend APIs and databases to polished, production-ready frontends.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">Contact Me</a>
+        <a href="#projects" class="btn btn-ghost">See Projects</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <img src="profile.jpeg" alt="Riya Chand" class="hero-photo">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <h2>Curious builder, still in the classroom</h2>
+    <div class="about-grid">
+      <div>
+        <p>I'm a B.Tech IT student who likes taking an idea all the way from a raw dataset or a rough sketch to something deployed and usable. My most recent build, a Fake Job Posting Detector, trained a Logistic Regression model on ~18,000 real job postings and shipped it with a FastAPI backend and a Next.js frontend.</p>
+        <p>Outside of coursework, I'm active with NSS (National Service Scheme) at my college, and I keep a running portfolio of shipped side-projects — a habit that's helped me learn full-stack development and deployment in parallel rather than one at a time.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-row"><span class="k">College</span><span>Heritage Institute of Technology</span></div>
+        <div class="info-row"><span class="k">Degree</span><span>B.Tech, Information Technology</span></div>
+        <div class="info-row"><span class="k">Semester</span><span>4th Semester</span></div>
+        <div class="info-row"><span class="k">Location</span><span>Kolkata, India</span></div>
+        <div class="info-row"><span class="k">Activity</span><span>NSS Volunteer</span></div>
+        <div class="learning-tags">
+          <span class="tag">Data Structures &amp; Algorithms</span>
+          <span class="tag">DBMS</span>
+          <span class="tag">Computer Networks</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">Skills</div>
+    <h2>Tools of the trade</h2>
+    <div class="skill-grid">
+      <div class="skill-cat">
+        <h3>Frontend</h3>
+        <div class="learning-tags">
+          <span class="tag">Next.js</span><span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Backend</h3>
+        <div class="learning-tags">
+          <span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <h3>Databases &amp; Tools</h3>
+        <div class="learning-tags">
+          <span class="tag">SQLite</span><span class="tag">MySQL</span><span class="tag">SQLAlchemy</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Vercel</span><span class="tag">Render</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2>Where I've built</h2>
+    <div class="exp-item">
+      <div class="when">2025 — Present</div>
+      <div>
+        <h3>Independent Full-Stack &amp; ML Projects</h3>
+        <div class="org">Self-directed</div>
+        <ul>
+          <li>Designed, trained, and deployed a fake job posting classifier end-to-end, tuning it from an early RandomForest baseline to a Logistic Regression model with balanced class weights, lifting fake-job recall to 87%.</li>
+          <li>Built and shipped five full-stack projects (CashFlow, ZeroWaste, Weather App, Medzee, Fake Job Detector), handling frontend, backend, and deployment independently.</li>
+          <li>Deployed backends on Render and frontends on Vercel, working through real production issues like environment config, CORS, and Unicode edge cases.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Featured Projects</div>
+    <h2>Selected work</h2>
+    <div class="proj-grid">
+      <div class="proj-card featured">
+        <h3>Fake Job Posting Detector</h3>
+        <p>ML system that flags fraudulent job listings using a Logistic Regression + TF-IDF classifier trained on ~18K postings, backed by a keyword-flag safety net for edge cases.</p>
+        <div class="proj-tags">
+          <span class="tag">Machine Learning</span><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">scikit-learn</span>
+        </div>
+        <div class="proj-links">
+          <a href="https://fake-job-frontend-omega.vercel.app/" target="_blank">Demo</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <h3>CashFlow</h3>
+        <p>Personal finance tracking application for logging income, expenses, and visualizing spending patterns over time.</p>
+        <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">React</span></div>
+        <div class="proj-links"><a href="https://riya-2004-chand.github.io/CashFlow/" target="_blank">Demo</a></div>
+      </div>
+      <div class="proj-card">
+        <h3>ZeroWaste</h3>
+        <p>Web app aimed at reducing food and resource waste through tracking and actionable suggestions.</p>
+        <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">Node.js</span></div>
+        <div class="proj-links"><span style="color:var(--text-dim);font-family:var(--mono);font-size:13px;">Repo not public</span></div>
+      </div>
+      <div class="proj-card">
+        <h3>Weather App</h3>
+        <p>Live weather lookup application with a clean, responsive interface for checking forecasts by location.</p>
+        <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">API Integration</span></div>
+        <div class="proj-links"><span style="color:var(--text-dim);font-family:var(--mono);font-size:13px;">Repo not public</span></div>
+      </div>
+      <div class="proj-card">
+        <h3>Medzee</h3>
+        <p>Medical application built on Next.js, integrating custom-generated UI components into a cohesive patient-facing product.</p>
+        <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">Healthcare</span></div>
+        <div class="proj-links"><span style="color:var(--text-dim);font-family:var(--mono);font-size:13px;">Repo not public</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="involvement">
+  <div class="wrap">
+    <div class="eyebrow">Campus &amp; Community</div>
+    <h2>Beyond the codebase</h2>
+    <div class="tl-item">
+      <div class="yr">2025</div>
+      <div>
+        <h4>NSS Volunteer, Heritage Institute of Technology</h4>
+        <p>Active member of the National Service Scheme, contributing to campus community initiatives alongside coursework.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="wrap">
+    <div class="eyebrow">Achievements</div>
+    <h2>By the numbers</h2>
+    <div class="stat-grid">
+      <div class="stat"><div class="num">5</div><div class="label">Projects Shipped</div><div class="sub">Built &amp; deployed</div></div>
+      <div class="stat"><div class="num">87%</div><div class="label">Fake-Job Recall</div><div class="sub">Tuned classifier</div></div>
+      <div class="stat"><div class="num">18K+</div><div class="label">Postings in Training Set</div><div class="sub">Fake Job Detector</div></div>
+      <div class="stat"><div class="num">2</div><div class="label">Deployment Platforms</div><div class="sub">Vercel + Render</div></div>
+    </div>
+  </div>
+</section>
+
+
+<section id="linkedin">
+  <div class="wrap">
+    <div class="eyebrow">Professional Network</div>
+    <h2>Let's connect</h2>
+    <div class="li-card">
+      <img src="profile.jpg" alt="Riya Chand" class="li-avatar">
+      <div class="li-info">
+        <h3>Riya Chand</h3>
+        <div class="role">Full-Stack Developer, B.Tech IT Student</div>
+        <div class="loc">Kolkata, India</div>
+      </div>
+      <a href="https://www.linkedin.com/in/riya-chand-870716299" target="_blank" class="btn btn-primary li-cta">Connect on LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="border-bottom:none;">
+  <div class="wrap contact-wrap">
+    <div class="eyebrow" style="justify-content:center;">Contact</div>
+    <h2>Let's build something</h2>
+    <p>Looking for fresher roles and internships in full-stack development — always open to a conversation.</p>
+    <div class="contact-links">
+      <a href="mailto:riyac0234@gmail.com" class="contact-pill">
+        <span class="pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" stroke-linejoin="round"/><path d="M4 6l8 7 8-7" stroke-linejoin="round"/></svg></span>
+        Email
+      </a>
+      <a href="https://github.com/Riya-2004-chand" target="_blank" class="contact-pill">
+        <span class="pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.99 3.24 9.22 7.74 10.72.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.15.68-3.81-1.34-3.81-1.34-.51-1.31-1.25-1.66-1.25-1.66-1.03-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1.01 1.73 2.65 1.23 3.29.94.1-.73.39-1.23.71-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.16-3.04-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.11 1.16a10.8 10.8 0 0 1 5.66 0c2.16-1.46 3.11-1.16 3.11-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.04 0 4.35-2.65 5.31-5.18 5.59.4.35.76 1.04.76 2.09 0 1.51-.01 2.72-.01 3.09 0 .3.2.65.79.55 4.5-1.5 7.73-5.73 7.73-10.72C23.02 5.24 18.27.5 12 .5z"/></svg></span>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/riya-chand-870716299" target="_blank" class="contact-pill">
+        <span class="pill-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></span>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Riya Chand. Built end-to-end, shipped end-to-end.</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  const link = e.target.closest('a[href^="#"]');
+  if(!link) return;
+  const id = link.getAttribute('href').slice(1);
+  const target = document.getElementById(id);
+  if(target){
+    e.preventDefault();
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+});
+</script>
+</body>
+</html>
