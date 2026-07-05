@@ -55,7 +55,7 @@
   .eyebrow::before{content:'';width:24px;height:1px;background:var(--violet);}
   h2{font-family:var(--display);font-size:clamp(28px,4vw,40px);font-weight:600;margin-bottom:44px;letter-spacing:-0.01em;}
 
-  
+  /* NAV */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:50;
     background:rgba(11,10,20,0.85);backdrop-filter:blur(10px);
@@ -68,7 +68,7 @@
   .nav-links{display:none;}
   @media(min-width:760px){.nav-links{display:flex;}}
 
-  
+  /* HERO */
   .hero{padding:170px 0 100px;border-bottom:1px solid var(--line);}
   .hero-inner{display:flex;flex-direction:column-reverse;gap:40px;align-items:center;}
   @media(min-width:860px){.hero-inner{flex-direction:row;justify-content:space-between;align-items:center;}}
@@ -103,7 +103,7 @@
   .social-row{display:flex;gap:20px;font-family:var(--mono);font-size:13px;color:var(--text-dim);flex-wrap:wrap;}
   .social-row a:hover{color:var(--violet-soft);}
 
-
+  /* ABOUT */
   .about-grid{display:grid;grid-template-columns:1fr;gap:40px;}
   @media(min-width:760px){.about-grid{grid-template-columns:1.4fr 1fr;}}
   .about-grid p{color:var(--text-dim);margin-bottom:16px;font-size:15.5px;}
@@ -114,14 +114,14 @@
   .learning-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
   .tag{font-family:var(--mono);font-size:12px;background:var(--bg-alt);border:1px solid var(--line);color:var(--violet-soft);padding:5px 11px;border-radius:100px;}
 
-  
+  /* SKILLS */
   .skill-grid{display:grid;grid-template-columns:1fr;gap:22px;}
   @media(min-width:640px){.skill-grid{grid-template-columns:1fr 1fr;}}
   .skill-cat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;}
   .skill-cat h3{font-family:var(--mono);font-size:13px;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
   .skill-cat .tag{color:var(--text);}
 
-  
+  /* EXPERIENCE */
   .exp-item{display:grid;grid-template-columns:120px 1fr;gap:24px;padding:26px 0;border-bottom:1px solid var(--line);}
   .exp-item:last-child{border-bottom:none;}
   .exp-item .when{font-family:var(--mono);font-size:13px;color:var(--text-dim);}
@@ -131,7 +131,7 @@
   .exp-item li{margin-bottom:6px;}
   @media(max-width:600px){.exp-item{grid-template-columns:1fr;gap:6px;}}
 
-  
+  /* PROJECTS */
   .proj-grid{display:grid;grid-template-columns:1fr;gap:22px;}
   @media(min-width:700px){.proj-grid{grid-template-columns:1fr 1fr;}}
   .proj-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px;display:flex;flex-direction:column;transition:.2s;}
@@ -139,12 +139,14 @@
   .proj-card h3{font-family:var(--display);font-size:20px;margin-bottom:10px;}
   .proj-card p{color:var(--text-dim);font-size:14.5px;margin-bottom:18px;flex-grow:1;}
   .proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;}
-  .proj-links{display:flex;gap:16px;font-family:var(--mono);font-size:13px;}
+  .proj-links{display:flex;gap:16px;align-items:center;font-family:var(--mono);font-size:13px;}
   .proj-links a{color:var(--violet-soft);}
   .proj-links a:hover{text-decoration:underline;}
+  .proj-icon-link{display:inline-flex;align-items:center;justify-content:center;color:var(--text-dim)!important;transition:.2s;text-decoration:none!important;}
+  .proj-icon-link:hover{color:var(--amber)!important;}
   .proj-card.featured{border-color:rgba(88,101,242,0.5);background:linear-gradient(160deg,var(--surface),var(--bg-alt));}
 
-  
+  /* TIMELINE (NSS/Campus) */
   .tl-item{display:grid;grid-template-columns:80px 1fr;gap:24px;padding:22px 0;border-bottom:1px solid var(--line);}
   .tl-item:last-child{border-bottom:none;}
   .tl-item .yr{font-family:var(--mono);color:var(--amber);font-size:14px;}
@@ -152,7 +154,7 @@
   .tl-item p{color:var(--text-dim);font-size:14.5px;}
   @media(max-width:600px){.tl-item{grid-template-columns:1fr;gap:4px;}}
 
-
+  /* ACHIEVEMENTS */
   .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
   @media(min-width:640px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
   .stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:26px 20px;text-align:center;}
@@ -160,7 +162,7 @@
   .stat .label{font-size:13px;color:var(--text);margin-top:6px;}
   .stat .sub{font-family:var(--mono);font-size:11px;color:var(--text-dim);margin-top:4px;}
 
-  
+  /* GITHUB */
   .gh-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:26px;}
   .gh-header h3{font-family:var(--display);font-size:20px;}
   .gh-header p{color:var(--text-dim);font-size:14px;}
@@ -168,7 +170,7 @@
   .gh-stats-row{display:grid;grid-template-columns:1fr;gap:16px;}
   @media(min-width:760px){.gh-stats-row{grid-template-columns:1fr 1fr;}}
 
-  
+  /* LINKEDIN */
   .li-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:32px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
   .li-avatar{width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0;border:2px solid var(--line);}
   .li-info h3{font-family:var(--display);font-size:19px;}
@@ -176,7 +178,7 @@
   .li-info .loc{font-family:var(--mono);font-size:12px;color:var(--text-dim);}
   .li-cta{margin-left:auto;}
 
-  
+  /* CONTACT */
   .contact-wrap{text-align:center;max-width:600px;margin:0 auto;}
   .contact-wrap h2{margin-bottom:14px;}
   .contact-wrap p{color:var(--text-dim);margin-bottom:36px;font-size:16px;}
@@ -197,6 +199,7 @@
       <li><a href="#home">Home</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#fundamentals">Fundamentals</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#involvement">Involvement</a></li>
@@ -210,7 +213,7 @@
 <section id="home" class="hero">
   <div class="wrap hero-inner">
     <div class="hero-text">
-    
+     
       <h1>Hi, I'm Riya Chand<br><span>Full-Stack Developer</span></h1>
       <div class="role">Next.js • React • FastAPI</div>
       <p class="desc">I build applications end-to-end — from backend APIs and databases to polished, production-ready frontends.</p>
@@ -231,10 +234,8 @@
     <h2>Curious builder, still in the classroom</h2>
     <div class="about-grid">
       <div>
-        <p>I am a B.Tech student in the Information Technology (IT) department at Heritage Institute of Technology, passionate about technology and continuous learning. I am currently developing my skills in Full Stack Development while exploring the basics of Machine Learning.
-        
-          I enjoy building practical projects that strengthen my problem-solving abilities and help me apply concepts to real-world scenarios. I am always eager to learn new technologies, collaborate with others, and grow as a developer by creating impactful and user-friendly applications.</p>
-        <p>Outside of coursework, I'm active with NSS (National Service Scheme) at my college, and I keep a running portfolio of shipped side-projects — a habit that's helped me learn full-stack development and deployment in parallel rather than one at a time.</p>
+        <p>I am a B.Tech student in the Information Technology (IT) department at Heritage Institute of Technology, passionate about technology and continuous learning. I am currently developing my skills in Full Stack Development while exploring the basics of Machine Learning.</p>
+        <p>I enjoy building practical projects that strengthen my problem-solving abilities and help me apply concepts to real-world scenarios. I am always eager to learn new technologies, collaborate with others, and grow as a developer by creating impactful and user-friendly applications.</p>
       </div>
       <div class="info-card">
         <div class="info-row"><span class="k">College</span><span>Heritage Institute of Technology</span></div>
@@ -242,18 +243,11 @@
         <div class="info-row"><span class="k">Year of Passing</span><span>2028</span></div>
         <div class="info-row"><span class="k">Location</span><span>Kolkata, India</span></div>
         <div class="info-row"><span class="k">Activity</span><span>NSS Volunteer</span></div>
-        <div class="learning-tags">
-          <span class="tag">Data Structures &amp; Algorithms</span>
-          <span class="tag">DBMS</span>
-          <span class="tag">Computer Networks</span>
-        </div>
       </div>
     </div>
   </div>
 </section>
 
-
-  
 <section id="skills">
   <div class="wrap">
     <div class="eyebrow">Skills</div>
@@ -271,12 +265,32 @@
           <span class="tag">Node.js</span><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">REST APIs</span>
         </div>
       </div>
+       <div class="skill-cat">
+        <h3>Machine Learning</h3>
+        <div class="learning-tags">
+          <span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">NLP</span>
+        </div>
+      </div>
+      
       <div class="skill-cat">
         <h3>Databases &amp; Tools</h3>
         <div class="learning-tags">
           <span class="tag">SQLite</span><span class="tag">MySQL</span><span class="tag">SQLAlchemy</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Vercel</span><span class="tag">Render</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="fundamentals">
+  <div class="wrap">
+    <div class="eyebrow">Coursework</div>
+    <h2>Computer Fundamentals</h2>
+    <div class="learning-tags">
+      <span class="tag">Data Structures &amp; Algorithms</span>
+      <span class="tag">DBMS</span>
+      <span class="tag">Computer Networks</span>
+      <span class="tag">Computer Organization and Architecture</span>
     </div>
   </div>
 </section>
@@ -291,7 +305,6 @@
         <h3>Independent Full-Stack &amp; ML Projects</h3>
         <div class="org">Self-directed</div>
         <ul>
-          <li>Designed, trained, and deployed a fake job posting classifier end-to-end, tuning it from an early RandomForest baseline to a Logistic Regression model with balanced class weights, lifting fake-job recall to 87%.</li>
           <li>Built and shipped five full-stack projects (CashFlow, ZeroWaste, Weather App, Medzee, Fake Job Detector), handling frontend, backend, and deployment independently.</li>
           <li>Deployed backends on Render and frontends on Vercel, working through real production issues like environment config, CORS, and Unicode edge cases.</li>
         </ul>
@@ -309,17 +322,18 @@
         <h3>Fake Job Posting Detector</h3>
         <p>ML system that flags fraudulent job listings using a Logistic Regression + TF-IDF classifier trained on ~18K postings, backed by a keyword-flag safety net for edge cases.</p>
         <div class="proj-tags">
-          <span class="tag">Machine Learning</span><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">scikit-learn</span>
+          <span class="tag">NLP</span><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">scikit-learn</span>
         </div>
         <div class="proj-links">
           <a href="https://fake-job-frontend-omega.vercel.app/" target="_blank">Demo</a>
+          <a href="https://github.com/Riya-2004-chand/Fake-Job-Detector" target="_blank" class="proj-icon-link" aria-label="GitHub repo"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.99 3.24 9.22 7.74 10.72.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.15.68-3.81-1.34-3.81-1.34-.51-1.31-1.25-1.66-1.25-1.66-1.03-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1.01 1.73 2.65 1.23 3.29.94.1-.73.39-1.23.71-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.16-3.04-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.11 1.16a10.8 10.8 0 0 1 5.66 0c2.16-1.46 3.11-1.16 3.11-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.04 0 4.35-2.65 5.31-5.18 5.59.4.35.76 1.04.76 2.09 0 1.51-.01 2.72-.01 3.09 0 .3.2.65.79.55 4.5-1.5 7.73-5.73 7.73-10.72C23.02 5.24 18.27.5 12 .5z"/></svg></a>
         </div>
       </div>
       <div class="proj-card">
         <h3>CashFlow</h3>
         <p>Personal finance tracking application for logging income, expenses, and visualizing spending patterns over time.</p>
-        <div class="proj-tags"><span class="tag">Next.js</span><span class="tag">React</span></div>
-        <div class="proj-links"><a href="https://riya-2004-chand.github.io/CashFlow/" target="_blank">Demo</a></div>
+        <div class="proj-tags"><span class="tag">React</span></div>
+        <div class="proj-links"><a href="https://riya-2004-chand.github.io/CashFlow/" target="_blank">Demo</a><a href="https://github.com/Riya-2004-chand/CashFlow" target="_blank" class="proj-icon-link" aria-label="GitHub repo"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.98 5.24.98 11.52c0 4.99 3.24 9.22 7.74 10.72.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.15.68-3.81-1.34-3.81-1.34-.51-1.31-1.25-1.66-1.25-1.66-1.03-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1.01 1.73 2.65 1.23 3.29.94.1-.73.39-1.23.71-1.51-2.52-.29-5.17-1.26-5.17-5.6 0-1.24.44-2.25 1.16-3.04-.12-.29-.5-1.44.11-3 0 0 .95-.3 3.11 1.16a10.8 10.8 0 0 1 5.66 0c2.16-1.46 3.11-1.16 3.11-1.16.61 1.56.23 2.71.11 3 .72.79 1.16 1.8 1.16 3.04 0 4.35-2.65 5.31-5.18 5.59.4.35.76 1.04.76 2.09 0 1.51-.01 2.72-.01 3.09 0 .3.2.65.79.55 4.5-1.5 7.73-5.73 7.73-10.72C23.02 5.24 18.27.5 12 .5z"/></svg></a></div>
       </div>
       <div class="proj-card">
         <h3>ZeroWaste</h3>
@@ -363,8 +377,8 @@
     <h2>By the numbers</h2>
     <div class="stat-grid">
       <div class="stat"><div class="num">5</div><div class="label">Projects Shipped</div><div class="sub">Built &amp; deployed</div></div>
-      <div class="stat"><div class="num">87%</div><div class="label">Fake-Job Recall</div><div class="sub">Tuned classifier</div></div>
-      <div class="stat"><div class="num">18K+</div><div class="label">Postings in Training Set</div><div class="sub">Fake Job Detector</div></div>
+      <div class="stat"><div class="num">5+</div><div class="label">Hackathon Finalist</div></div>
+      <div class="stat"><div class="num">3</div><div class="label">DataScience Competitions Finalist</div></div>
       <div class="stat"><div class="num">2</div><div class="label">Deployment Platforms</div><div class="sub">Vercel + Render</div></div>
     </div>
   </div>
@@ -376,7 +390,6 @@
     <div class="eyebrow">Professional Network</div>
     <h2>Let's connect</h2>
     <div class="li-card">
-    
       <div class="li-info">
         <h3>Riya Chand</h3>
         <div class="role">Full-Stack Developer, B.Tech IT Student</div>
